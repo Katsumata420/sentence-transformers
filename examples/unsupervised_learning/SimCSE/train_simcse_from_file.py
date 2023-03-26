@@ -5,7 +5,6 @@ Usage:
 python train_simcse_from_file.py path/to/sentences.txt
 """
 import argparse
-import json
 import logging
 import math
 from typing import List
@@ -38,9 +37,7 @@ def load_train_data(file_path: str) -> List[InputExample]:
     with open(file_path) as i_f:
         for line in i_f:
             line = line.strip()
-            data = json.loads(line)
-            train_samples.append(InputExample(texts=[data["phrase"], data["phrase"]]))
-            # train_samples.append(InputExample(texts=[line, line]))
+            train_samples.append(InputExample(texts=[line, line]))
     return train_samples
 
 
